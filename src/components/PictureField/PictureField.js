@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import s from './PictureField.module.scss';
 
-const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/zoom/veselye-druzya-vinni-puh-i-pyatachok.jpg' }) => {
+const PictureField = ({ state, imageUrl = 'https://rozmalyovky.com.ua/wp-content/uploads/wwq_220.jpg' }) => {
     const FIRST_LETTER = 65;
 
     const picRef = useRef(null);
@@ -9,14 +9,13 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
     let size = state;
     const [lines, setLines] = useState([]);
     const [pieces, setPieces] = useState([]);
-    const [canvases, setCanvases] = useState([]);
 
     const [rowsNames, setRowsNames] = useState([1]);
     const [columnsNames, setColumnsNames] = useState(['A']);
 
 
-    let WIDTH = 500;
-    let HEIGHT = 500;
+    let WIDTH;
+    let HEIGHT;
 
     let naturalWidth;
     let naturalHeight;
@@ -33,10 +32,6 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
 
     const pieceWidth = WIDTH / size.columns;
     const pieceHeight = HEIGHT / size.rows;
-
-
-
-
 
     const drawLines = () => {
         const { rows, columns } = size;
@@ -77,83 +72,41 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
     };
 
     const shuffle = () => {
+        const { rows, columns } = size;
+        const pieceWidthP = WIDTH / size.columns;
+        const pieceHeightP = HEIGHT / size.rows;
 
-        generateCanvases();
-        // // const canvas = canvasRef.current
-        // // const ctx = canvas.getContext('2d')
-        // // const img = picRef.current;
-        // const { rows, columns } = size;
-        // const pieceWidthP = naturalWidth / size.columns;
-        // const pieceHeightP = naturalHeight / size.rows;
+        const scaleW = WIDTH / naturalWidth;
+        const scaleH = HEIGHT / naturalHeight;
 
-        // const scaleW = WIDTH / naturalWidth;
-        // const scaleH = HEIGHT / naturalHeight;
+        console.log('WIDTH', WIDTH, 'HEIGHT', HEIGHT)
 
-        // // ctx.drawImage(img, 0, 0, img.width / rows, img.height / columns, 0, 0, canvas.width, canvas.height);
-        // // console.log(ctx)
-        // // setSize(JSON.parse(window.localStorage.getItem('size')));
+        const newPieces = [];
 
-        // // const pieceWidth = WIDTH / rows;
-        // // const pieceHeight = HEIGHT / columns;
-        // const newPieces = [];
-
-        // for (let row = 0; row < rows; row++) {
-        //     for (let col = 0; col < columns; col++) {
-        //         console.log('in block',)
-        //         newPieces.push({
-        //             row,
-        //             col,
-        //             // backgroundPosition: `-${col * pieceWidth}px -${row * pieceHeight}px`,
-        //             backgroundPosition: `-${col * pieceWidthP}px -${row * pieceHeightP}px`,
-        //             label: `${String.fromCharCode(col + FIRST_LETTER)}${row + 1}`,
-        //             width: pieceWidthP,
-        //             height: pieceHeightP,
-        //             scaleW,
-        //             scaleH,
-        //         });
-        //     }
-        // }
-
-        // console.log('width', naturalWidth, 'height', naturalHeight);
-        // console.log('pieceWidth', pieceWidth, 'pieceHeight', pieceHeight);
-        // console.log('pieceWidthP', pieceWidthP, 'pieceHeightP', pieceHeightP);
-        // console.log('scale', scaleW, scaleH);
-
-        // console.log(newPieces)
-
-        // setPieces(newPieces);
-        // // setPieces(shuffleArray(newPieces));
-    };
-
-    const generateCanvases = () => {
-        const img = picRef.current;
-        const pieceWidth = img.offsetWidth / size.columns;
-        const pieceHeight = img.offsetHeight / size.rows;
-
-        const newCanvases = [];
-        for (let row = 0; row < size.rows; row++) {
-            for (let col = 0; col < size.columns; col++) {
-                const canvas = document.createElement('canvas');
-                canvas.width = pieceWidth;
-                canvas.height = pieceHeight;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(
-                    img,
-                    col * pieceWidth,
-                    row * pieceHeight,
-                    pieceWidth,
-                    pieceHeight,
-                    0,
-                    0,
-                    pieceWidth,
-                    pieceHeight
-                );
-                newCanvases.push(canvas);
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < columns; col++) {
+                console.log('in block',)
+                newPieces.push({
+                    row,
+                    col,
+                    backgroundPosition: `-${col * pieceWidthP}px -${row * pieceHeightP}px`,
+                    label: `${String.fromCharCode(col + FIRST_LETTER)}${row + 1}`,
+                    width: pieceWidthP,
+                    height: pieceHeightP,
+                    backgroundSize: `${WIDTH}px ${HEIGHT}px`
+                });
             }
         }
 
-        setCanvases(shuffleArray(newCanvases));
-    }
+        console.log('width', naturalWidth, 'height', naturalHeight);
+        console.log('pieceWidth', pieceWidth, 'pieceHeight', pieceHeight);
+        console.log('pieceWidthP', pieceWidthP, 'pieceHeightP', pieceHeightP);
+        console.log('scale', scaleW, scaleH);
+
+        console.log(newPieces)
+
+        setPieces(shuffleArray(newPieces));
+    };
 
     return (
         <>
@@ -188,7 +141,7 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
                     ))}</div>
 
                 <div className={`${s.Img} ${s.Sasha}`}>
-                    <img classname={s.Pic} src={imageUrl} alt='cutting' ref={picRef} crossOrigin='anonymous' />
+                    <img src={imageUrl} alt='cutting' ref={picRef} />
                     {lines.map((line, index) => (
                         <div
                             key={index}
@@ -201,19 +154,12 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
 
             <p className={s.BreakPage}>&nbsp;</p>
 
-            <div className={`${s.Img} ${s.Grid}`}
+            <div className={`${s.CuttedImg}`}
                 style={{ width: { WIDTH }, height: { HEIGHT }, gridTemplateColumns: `repeat(${state.columns}, auto)` }}>
                 {pieces.map((piece, index) => (
                     <div
                         className={s.PieceBlock}
                         key={index}
-                        style={{
-                            // width: pieceWidth,
-                            // height: pieceHeight + 52,
-                            backgroundSize: 'contain',
-                            objectFit: 'contain',
-                            // height: piece.height
-                        }}
                     >
                         <div className={s.ImagePieceLabel}>
                             {piece.label}
@@ -226,124 +172,27 @@ const PictureField = ({ state, imageUrl = 'https://deti-online.com/i/c/f5/5341/z
                                 backgroundPosition: piece.backgroundPosition,
                                 top: piece.row * piece.height,
                                 left: piece.col * piece.width,
-                                // backgroundSize: 'contain',
-                                // transform: `scale(${piece.scaleW}, ${piece.scaleH})`,
+                                backgroundSize: piece.backgroundSize,
                             }}>
+                            <div className={s.LinesM}
+                                style={{
+                                    width: piece.width,
+                                    height: piece.height
+                                }}>
+                                <div
+                                    className={s.VertLine}
+                                ></div>
+                                <div
+                                    className={s.HorLine}
+                                ></div>
+                            </div>
 
                         </div>
                     </div>
-
-
                 ))}
             </div>
-
-            {/* <canvas ref={canvasRef} width={500} height={500}></canvas> */}
-            <div className={`${s.Img} ${s.Grid}`} style={{ gridTemplateColumns: `repeat(${size.columns}, 1fr)` }}>
-                {canvases.map((canvas, index) => (
-                    <div
-                        key={index}
-                        className={s.ImagePiece}
-                        style={{
-                            width: canvas.width,
-                            height: canvas.height,
-                        }}
-                    >
-                        {canvas ? <img src={canvas.toDataURL()} alt={`piece-${index}`} /> : null}
-                    </div>
-                ))}
-            </div>
-
         </>
     )
 }
 
 export default PictureField;
-
-// import React, { useState, useEffect } from 'react';
-// import s from './PictureField.module.scss';
-// import pic from './Piglet07.jpg';
-
-// const PictureField = ({ imageUrl = 'src/components/PictureField/PictureField.js', numRowsToCut = 5, numColsToCut = 10 }) => {
-//     const [pieces, setPieces] = useState([]);
-//     const [imageLoaded, setImageLoaded] = useState(false);
-//     const pieceWidth = 500 / numColsToCut;
-//     const pieceHeight = 500 / numRowsToCut;
-
-//     useEffect(() => {
-//         const image = new Image();
-//         image.onload = () => {
-//             cutImageUp(image);
-//             setImageLoaded(true);
-//         };
-//         image.src = imageUrl;
-//     }, [imageUrl]);
-
-//     const cutImageUp = (image) => {
-//         const imagePieces = [];
-//         for (let x = 0; x < numColsToCut; ++x) {
-//             for (let y = 0; y < numRowsToCut; ++y) {
-//                 const canvas = document.createElement('canvas');
-//                 canvas.width = pieceWidth;
-//                 canvas.height = pieceHeight;
-//                 const context = canvas.getContext('2d');
-//                 context.drawImage(
-//                     image,
-//                     x * pieceWidth,
-//                     y * pieceHeight,
-//                     pieceWidth,
-//                     pieceHeight,
-//                     0,
-//                     0,
-//                     canvas.width,
-//                     canvas.height
-//                 );
-//                 imagePieces.push({
-//                     src: canvas.toDataURL(),
-//                     x,
-//                     y,
-//                 });
-//             }
-//         }
-//         setPieces(imagePieces);
-//     };
-
-//     const shuffleArray = (array) => {
-//         for (let i = array.length - 1; i > 0; i--) {
-//             const j = Math.floor(Math.random() * (i + 1));
-//             [array[i], array[j]] = [array[j], array[i]];
-//         }
-//         return array;
-//     };
-
-//     const shufflePieces = () => {
-//         setPieces((prevPieces) => shuffleArray([...prevPieces]));
-//     };
-
-//     return (
-//         <div>
-//             <div className={s.Picture} style={{ width: 500, height: 500, position: 'relative' }}>
-//                 {/* {imageLoaded &&
-//                     pieces.map((piece, index) => (
-//                         <img
-//                             key={index}
-//                             src={piece.src}
-//                             alt={`Piece ${index}`}
-//                             style={{
-//                                 width: pieceWidth,
-//                                 height: pieceHeight,
-//                                 position: 'absolute',
-//                                 top: piece.y * pieceHeight,
-//                                 left: piece.x * pieceWidth,
-//                             }}
-//                         />
-//                     ))} */}
-//                 <img src={pic} width="100%" height="100%" alt="" />
-//             </div>
-//             <button className={s.Button} type="button" onClick={shufflePieces}>
-//                 Shuffle Pieces
-//             </button>
-//         </div>
-//     );
-// };
-
-// export default PictureField;
