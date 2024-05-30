@@ -1,0 +1,134 @@
+@import '/src/styles/shared.scss';
+
+input[type=number] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Wrapper {
+    position: relative;
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    // // width: $input-size;
+    // padding: $input-padding;
+
+    // text-align: center;
+
+    border: $border-size solid $border-color;
+    border-radius: $round-border-radius;
+
+    &:focus,
+    &:hover {
+        border-color: $accent-color;
+        outline: none;
+    }
+}
+
+.Placeholder {
+    position: absolute;
+    left: 50%;
+
+    font-size: 8px;
+    color: gray;
+
+    transform: translate(-50%, 0);
+}
+
+.Input {
+    width: $input-size;
+    padding: $input-padding 0;
+
+    text-align: center;
+
+    font-size: $medium-font-size;
+    line-height: 1.5;
+
+    border: $border-size solid $border-color;
+    border-radius: $round-border-radius;
+
+    border: none;
+
+    &:focus,
+    &:hover {
+        border-color: $accent-color;
+        outline: none;
+    }
+}
+
+.Button {
+    position: absolute;
+    top: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $button-padding/2;
+
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    opacity: 1;
+
+    transform: scale(1) translate(0, -50%);
+
+    transition: all $transition-duration $timing-function;
+
+    &:hover {
+        & .Minus {
+            color: $accent-color;
+        }
+    }
+
+
+    &:active {
+        opacity: 0.5;
+        transform: scale($active-scale) translate(0, -50%);
+
+        & .Minus {
+            color: $accent-color;
+        }
+    }
+
+    &:disabled {
+
+        opacity: 1;
+        transform: scale(1) translate(0, -50%);
+
+        & .Minus {
+            color: lightgray;
+        }
+    }
+}
+
+.Decrease {
+    // background-image: url("../../images/svg/minus.svg");
+}
+
+.Increase {
+    right: 0;
+}
+
+.Minus {
+    color: $primary-text-color;
+    transition: all $transition-duration $timing-function;
+}
+
+.First {
+    border: 1px solid red;
+    border-radius: 20px;
+
+    pointer-events: none;
+}

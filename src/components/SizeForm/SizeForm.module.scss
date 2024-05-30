@@ -1,0 +1,85 @@
+@import '/src/styles/shared.scss';
+
+.Section {
+    padding: $section-vertical-padding $section-vertical-padding;
+
+    @media print {
+        display: none;
+    }
+}
+
+.Title {
+    margin-bottom: $small-elements-vertical-margin;
+
+    text-align: center;
+
+    font-size: $title2-font-size;
+    line-height: 1.5;
+
+    color: $primary-text-color;
+}
+
+.Form {
+    display: flex;
+    // flex-direction: column;
+
+    justify-content: center;
+    align-items: end;
+}
+
+.InputsWrapper {
+    display: flex;
+}
+
+.Input {
+    display: block;
+    text-align: center;
+
+    margin-right: $elements-horizontal-margin;
+}
+
+.Label {
+    display: block;
+
+    text-align: center;
+
+    font-size: $primary-font-size;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.Text {
+    font-size: $primary-font-size;
+    line-height: 1.5;
+}
+
+.Button {
+    min-width: $button-min-size;
+    padding: $button-padding;
+
+    text-align: center;
+
+    font-size: $primary-font-size;
+    line-height: 1.5;
+    font-weight: 700;
+
+    background-color: $accent-color;
+    box-shadow: $element-shadow;
+
+    border: $border-size solid $border-color;
+    border-radius: $round-border-radius;
+
+    transform: scale(1);
+
+    transition: all $transition-duration $timing-function;
+
+    &:hover {
+        background-color: $button-hovered-background;
+    }
+
+    &:active {
+        background-color: $button-hovered-background;
+
+        transform: scale($active-scale);
+    }
+}

@@ -1,0 +1,41 @@
+// text
+$title1-font-size: 32px;
+$title2-font-size: 24px;
+$medium-font-size: 20px;
+$primary-font-size: 17px;
+$small-font-size: 14px;
+
+// sizes
+$max-width: 800px;
+
+// buttons 
+$button-min-size: 100px;
+$button-padding: 10px;
+
+// input
+$input-size: $button-min-size;
+$input-padding: $button-padding;
+
+// paddings
+$container-horizontal-padding: 15px;
+$section-vertical-padding: 20px;
+$section-horizontal-padding: 30px;
+
+// margin
+$small-elements-vertical-margin: 10px;
+$big-elements-vertical-margin: calc(2*$small-elements-vertical-margin);
+$elements-horizontal-margin: 30px;
+
+// shadows
+$section-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+$section-invert-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0px -8px 16px rgba(0, 0, 0, 0.1);
+$element-shadow: 0 2px 5px 2px rgba(0, 0, 0, .2);
+
+//borders
+$border-size: 2px;
+$round-border-radius: 30px;
+
+// transitions
+$transition-duration: 250ms;
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$active-scale: 0.98;

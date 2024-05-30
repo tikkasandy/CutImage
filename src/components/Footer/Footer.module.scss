@@ -1,0 +1,33 @@
+@import '/src/styles/shared.scss';
+
+.Footer {
+    z-index: 3;
+
+    padding: $section-vertical-padding $section-horizontal-padding;
+
+    background-color: $accent-color;
+    box-shadow: $section-invert-shadow;
+
+    @media print {
+        display: none;
+    }
+}
+
+.Text {
+    text-align: center;
+
+    font-size: $small-font-size;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: $primary-text-color;
+}
+
+.Link {
+    color: $primary-text-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}

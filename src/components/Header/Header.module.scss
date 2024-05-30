@@ -1,0 +1,65 @@
+@import '/src/styles/shared.scss';
+
+.Header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+
+    padding: $section-vertical-padding $section-horizontal-padding;
+
+    background-color: $accent-color;
+    box-shadow: $section-shadow;
+
+    @media print {
+        display: none;
+    }
+}
+
+.Title {
+    text-align: center;
+
+    font-size: $title1-font-size;
+    line-height: 1.5;
+
+    color: $primary-text-color;
+}
+
+.Button {
+    position: absolute;
+    top: $section-vertical-padding;
+    right: $section-horizontal-padding;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $button-padding;
+
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: all $transition-duration $timing-function;
+
+    &:hover {
+        & .Printer {
+            color: white;
+        }
+    }
+
+    &:active {
+        opacity: 0.5;
+        transform: scale($active-scale);
+    }
+}
+
+.Printer {
+    color: $primary-text-color;
+    transition: all $transition-duration $timing-function;
+}

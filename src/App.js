@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import SizeForm from './components/SizeForm';
+import Container from './components/Container';
+import PictureField from './components/PictureField/PictureField';
 import './App.css';
 
+
 function App() {
+  const [size, setSize] = useState(JSON.parse(window.localStorage.getItem('size')));
+
+  const changeSize = newSize => {
+    console.log(newSize);
+    // window.localStorage.setItem('size', JSON.stringify(size));
+    setSize(newSize);
+  }
+  useEffect(() => {
+    window.localStorage.setItem('size', JSON.stringify(size));
+  }, [size]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Container>
+          <SizeForm changeSize={changeSize} />
+          <PictureField state={size} />
+        </Container>
+      </main>
+      <Footer />
+    </>
   );
 }
 
