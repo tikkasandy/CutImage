@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/kidDRAWgrid/static/css/main.f8cfcaef.css",
+    "main.js": "/kidDRAWgrid/static/js/main.1efb78dd.js",
+    "index.html": "/kidDRAWgrid/index.html",
+    "static/media/scissors.svg": "/kidDRAWgrid/static/media/scissors.ebe3260de76fa12ceec0512949355adb.svg",
+    "main.f8cfcaef.css.map": "/kidDRAWgrid/static/css/main.f8cfcaef.css.map",
+    "main.1efb78dd.js.map": "/kidDRAWgrid/static/js/main.1efb78dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8cfcaef.css",
+    "static/js/main.1efb78dd.js"
+  ]
+}
