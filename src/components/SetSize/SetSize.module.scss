@@ -1,0 +1,36 @@
+@import '/src/styles/shared.scss';
+
+.Section {
+    // padding: $section-vertical-padding $section-vertical-padding;
+
+
+    @media print {
+        display: none;
+    }
+}
+
+.Form {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.Input {
+    display: flex;
+
+    margin-right: $small-elements-horizontal-margin;
+}
+
+.Label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: $small-font-size;
+    line-height: 1.5;
+}
+
+.Svg {
+    width: $svg-size;
+    height: $svg-size;
+}

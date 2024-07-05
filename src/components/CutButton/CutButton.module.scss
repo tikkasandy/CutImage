@@ -1,0 +1,48 @@
+@import '/src/styles/shared.scss';
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $button-min-width;
+
+    background-color: $second-accent-color;
+    box-shadow: $element-shadow;
+
+    border: $border-size solid $border-color;
+    border-radius: $round-border-radius;
+
+    transform: scale(1);
+
+    transition: all $transition-duration $timing-function;
+
+
+    &:hover {
+        background-color: $button-hovered-background;
+    }
+
+    &:active {
+        background-color: $button-hovered-background;
+
+        transform: scale($active-scale);
+    }
+
+    &:disabled {
+        background-color: $disabled-color;
+
+        transform: scale(1);
+
+        & .LogoImg {
+            color: $primary-color;
+            opacity: 0.1;
+        }
+    }
+
+}
+
+.LogoImg {
+    width: $title1-font-size;
+
+    color: $accent-color;
+}

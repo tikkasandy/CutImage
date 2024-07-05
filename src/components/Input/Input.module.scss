@@ -15,52 +15,18 @@ input[type=number]::-webkit-outer-spin-button {
 .Wrapper {
     position: relative;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-
-    // // width: $input-size;
-    // padding: $input-padding;
-
-    // text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     border: $border-size solid $border-color;
     border-radius: $round-border-radius;
 
-    &:focus,
-    &:hover {
-        border-color: $accent-color;
-        outline: none;
-    }
-}
-
-.Placeholder {
-    position: absolute;
-    left: 50%;
-
-    font-size: 8px;
-    color: gray;
-
-    transform: translate(-50%, 0);
-}
-
-.Input {
-    width: $input-size;
-    padding: $input-padding 0;
-
-    text-align: center;
-
-    font-size: $medium-font-size;
-    line-height: 1.5;
-
-    border: $border-size solid $border-color;
-    border-radius: $round-border-radius;
-
-    border: none;
+    transition: all $transition-duration $timing-function;
 
     &:focus,
     &:hover {
-        border-color: $accent-color;
+        border-color: $second-accent-color;
         outline: none;
     }
 }
@@ -74,9 +40,10 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
     padding: $button-padding/2;
 
-    border: 0;
-    border-radius: 50%;
     background-color: transparent;
+
+    border: none;
+    border-radius: 50%;
 
     cursor: pointer;
 
@@ -87,48 +54,58 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all $transition-duration $timing-function;
 
     &:hover {
-        & .Minus {
-            color: $accent-color;
+        & .Svg {
+            color: $second-accent-color;
         }
     }
-
 
     &:active {
         opacity: 0.5;
         transform: scale($active-scale) translate(0, -50%);
 
-        & .Minus {
-            color: $accent-color;
+        & .Svg {
+            color: $second-accent-color;
         }
     }
 
     &:disabled {
-
         opacity: 1;
         transform: scale(1) translate(0, -50%);
 
-        & .Minus {
-            color: lightgray;
+        & .Svg {
+            color: $disabled-color;
         }
     }
 }
 
 .Decrease {
-    // background-image: url("../../images/svg/minus.svg");
+    left: 0;
 }
 
 .Increase {
     right: 0;
 }
 
-.Minus {
+.Svg {
+    width: $small-font-size;
+    height: $small-font-size;
+
     color: $primary-text-color;
+
     transition: all $transition-duration $timing-function;
 }
 
-.First {
-    border: 1px solid red;
-    border-radius: 20px;
+.Input {
+    width: $input-width;
+    height: $input-height;
+    padding: $input-padding 0;
 
-    pointer-events: none;
+    text-align: center;
+
+    font-size: $small-font-size;
+    line-height: 1.5;
+
+    border: none;
+    border-radius: $round-border-radius;
+    outline: none;
 }

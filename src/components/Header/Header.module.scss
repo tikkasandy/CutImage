@@ -16,50 +16,34 @@
     }
 }
 
+.Wrapper {}
+
+.Logo {
+    display: flex;
+
+    margin-bottom: 5px;
+}
+
+.LogoImg {
+    width: $title1-font-size;
+    margin-right: 5px;
+
+    color: $second-accent-color;
+}
+
 .Title {
     text-align: center;
 
     font-size: $title1-font-size;
     line-height: 1.5;
+    font-weight: 300;
 
     color: $primary-text-color;
 }
 
-.Button {
-    position: absolute;
-    top: $section-vertical-padding;
-    right: $section-horizontal-padding;
+.Settings {
+    padding: 5px;
+    background-color: #e3ba40;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: $button-padding;
-
-    border: 0;
-    border-radius: 50%;
-    background-color: transparent;
-
-    cursor: pointer;
-
-    opacity: 1;
-
-    transform: scale(1);
-
-    transition: all $transition-duration $timing-function;
-
-    &:hover {
-        & .Printer {
-            color: white;
-        }
-    }
-
-    &:active {
-        opacity: 0.5;
-        transform: scale($active-scale);
-    }
-}
-
-.Printer {
-    color: $primary-text-color;
-    transition: all $transition-duration $timing-function;
+    border-radius: 20px;
 }

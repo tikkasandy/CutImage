@@ -1,34 +1,27 @@
-import { useEffect, useState } from 'react';
+import { AppContextProvider } from './context';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import SizeForm from './components/SizeForm';
 import Container from './components/Container';
-import PictureField from './components/PictureField/PictureField';
-import './App.css';
-
+// import SettingsBar from './components/SettingsBar';
+import OriginalImg from './components/OriginalImg/OriginalImg';
+import ShuffledPieces from './components/ShuffledPieces';
+import s from './App.module.scss';
 
 function App() {
-  const [size, setSize] = useState(JSON.parse(window.localStorage.getItem('size')));
-
-  const changeSize = newSize => {
-    console.log(newSize);
-    // window.localStorage.setItem('size', JSON.stringify(size));
-    setSize(newSize);
-  }
-  useEffect(() => {
-    window.localStorage.setItem('size', JSON.stringify(size));
-  }, [size]);
   return (
-    <>
+    <AppContextProvider>
       <Header />
-      <main>
-        <Container>
-          <SizeForm changeSize={changeSize} />
-          <PictureField state={size} />
-        </Container>
+      <main className={s.Main}>
+        {/* <Container> */}
+        {/* <SettingsBar /> */}
+        <OriginalImg />
+
+        <ShuffledPieces />
+        <div className={s.Line}></div>
+        {/* </Container> */}
       </main>
       <Footer />
-    </>
+    </AppContextProvider>
   );
 }
 

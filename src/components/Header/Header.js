@@ -1,26 +1,24 @@
 import Container from "../Container";
-import { Printer } from 'lucide-react';
+import SettingsBar from '../SettingsBar';
+import { ReactComponent as Icon } from '../../images/svg/scissors.svg';
 import s from './Header.module.scss';
 
-const Header = () => {
-    function handlePrint() {
-        window.print()
-    }
-    return (
-        <header className={s.Header}>
-            <Container>
-                <h1 className={s.Title}>Cut the image</h1>
 
-                <button
-                    type="button"
-                    className={s.Button}
-                    value="Print this page"
-                    onClick={handlePrint}>
-                    <Printer className={s.Printer} />
-                </button>
-            </Container>
-        </header>
-    )
-}
+const Header = () => (
+    <header className={s.Header}>
+        <Container>
+            <div className={s.Wrapper}>
+                <div className={s.Logo}>
+                    <Icon className={s.LogoImg} />
+                    <h1 className={s.Title}>kid<strong>draw</strong>grid</h1>
+                </div>
+                <div className={s.Settings}>
+                    <SettingsBar />
+                </div>
+            </div>
+
+        </Container>
+    </header>
+)
 
 export default Header;

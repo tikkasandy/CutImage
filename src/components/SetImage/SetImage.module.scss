@@ -1,0 +1,52 @@
+@import '/src/styles/shared.scss';
+
+.Section {
+    display: flex;
+    flex-grow: 1;
+    margin-right: $small-elements-horizontal-margin;
+}
+
+.Label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Svg {
+    width: $svg-size;
+    height: $svg-size;
+}
+
+.Url {
+    display: flex;
+    align-items: center;
+
+    flex-grow: 1;
+}
+
+.Input {
+    flex-grow: 1;
+    height: $input-height;
+    padding: $input-padding;
+
+    font-size: $small-font-size;
+    line-height: 1.5;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    background-color: $white-color;
+
+    border: $border-size solid $border-color;
+    border-radius: $round-border-radius;
+    outline: none;
+
+    transition: all $transition-duration $timing-function;
+
+    &:hover,
+    &:active {
+        border: $border-size solid $second-accent-color;
+
+    }
+}
