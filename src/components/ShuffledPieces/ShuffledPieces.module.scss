@@ -2,7 +2,7 @@
 
 $picture-title-size: 50px;
 $main-line: 1px solid black;
-$secondary-line: 1px dashed $accent-color;
+$secondary-line: 1px dashed $primary-color;
 
 .Cutted {
     display: flex;
@@ -48,8 +48,8 @@ $secondary-line: 1px dashed $accent-color;
 .PieceBlock {
     display: block;
     // position: relative;
-    margin-right: 5px;
-    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 
     border: 2px solid black;
 
@@ -222,7 +222,7 @@ $secondary-line: 1px dashed $accent-color;
     font-size: 20px;
     font-weight: 700;
     // &:not(:last-child) {
-    //     border-right: 1px dashed $accent-color;
+    //     border-right: 1px dashed $primary-color;
     //     ;
     // }
 }
@@ -283,9 +283,9 @@ $secondary-line: 1px dashed $accent-color;
 }
 
 .ErrorMessage {
-    margin-top: $big-elements-vertical-margin;
-    margin-bottom: $big-elements-vertical-margin;
-    font-size: $title1-font-size;
+    margin-top: $elements-margin-big;
+    margin-bottom: $elements-margin-big;
+    font-size: $title-font-size;
     font-weight: 700;
 
 }
@@ -294,5 +294,5 @@ $secondary-line: 1px dashed $accent-color;
     width: 250px;
     height: 250px;
 
-    color: $accent-color;
+    color: $primary-color;
 }

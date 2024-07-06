@@ -3,7 +3,7 @@
 .Section {
     display: flex;
     flex-grow: 1;
-    margin-right: $small-elements-horizontal-margin;
+    margin-right: $elements-margin;
 }
 
 .Label {
@@ -46,7 +46,7 @@
 
     &:hover,
     &:active {
-        border: $border-size solid $second-accent-color;
+        border: $border-size solid $accent-color;
 
     }
 }

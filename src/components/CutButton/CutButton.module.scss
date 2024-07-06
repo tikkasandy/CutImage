@@ -7,7 +7,7 @@
 
     width: $button-min-width;
 
-    background-color: $second-accent-color;
+    background-color: $accent-color;
     box-shadow: $element-shadow;
 
     border: $border-size solid $border-color;
@@ -31,10 +31,12 @@
     &:disabled {
         background-color: $disabled-color;
 
+        pointer-events: none;
+
         transform: scale(1);
 
         & .LogoImg {
-            color: $primary-color;
+            color: $black-color;
             opacity: 0.1;
         }
     }
@@ -42,7 +44,7 @@
 }
 
 .LogoImg {
-    width: $title1-font-size;
+    width: $title-font-size;
 
-    color: $accent-color;
+    color: $primary-color;
 }

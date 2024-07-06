@@ -8,7 +8,7 @@
 
     padding: $section-vertical-padding $section-horizontal-padding;
 
-    background-color: $accent-color;
+    background-color: $primary-color;
     box-shadow: $section-shadow;
 
     @media print {
@@ -16,25 +16,23 @@
     }
 }
 
-.Wrapper {}
-
 .Logo {
     display: flex;
 
-    margin-bottom: 5px;
+    margin-bottom: $elements-margin-small;
 }
 
 .LogoImg {
-    width: $title1-font-size;
-    margin-right: 5px;
+    width: $title-font-size;
+    margin-right: $elements-margin-small;
 
-    color: $second-accent-color;
+    color: $accent-color;
 }
 
 .Title {
     text-align: center;
 
-    font-size: $title1-font-size;
+    font-size: $title-font-size;
     line-height: 1.5;
     font-weight: 300;
 
@@ -42,8 +40,9 @@
 }
 
 .Settings {
-    padding: 5px;
-    background-color: #e3ba40;
+    padding: $settings-padding;
 
-    border-radius: 20px;
+    background-color: $primary-color-darken;
+
+    border-radius: $round-border-radius;
 }

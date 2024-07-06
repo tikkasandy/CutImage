@@ -23,7 +23,7 @@ const reducer = (state, action) => {
         case 'SET_GRID':
             return { ...state, grid: action.payload };
         case 'SET_IMG_SIZE':
-            console.log('dispatch SET_IMG_SIZE', action.payload)
+
             return { ...state, imgSize: action.payload };
         case 'SET_LINES_VISIBILITY':
             return { ...state, linesVisibility: action.payload };

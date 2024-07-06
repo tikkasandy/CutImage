@@ -1,19 +1,22 @@
-$body-color: #ffffff;
-$primary-color: #000000;
-// $accent-color: #f5c750;
-$accent-color: #fccf47;
-// $second-accent-color: #24afc1;
-$second-accent-color: #1795a8;
+$black-color: #000000;
+$grey-color: #d3d3d3;
 $white-color: #F8F8F8;
-$disabled-color: #c0c0c0;
+$primary-color: #fccf47;
+$accent-color: #1795a8;
+$disabled-color: $grey-color;
+
+// body 
+$body-color: #ffffff;
 
 // text
-$primary-text-color: $primary-color;
+$primary-text-color: $black-color;
 
 // button
-$button-background: $accent-color;
-$button-hovered-background: #158697;
-
+$button-background: $primary-color;
+$button-hovered-background: #158697; //accent-color +10%
 
 // borders
-$border-color: $primary-color;
+$border-color: $black-color;
+
+//background
+$primary-color-darken: #e3ba40;

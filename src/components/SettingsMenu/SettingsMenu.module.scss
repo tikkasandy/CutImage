@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
 
-    margin-right: $small-elements-horizontal-margin;
+    margin-right: $elements-margin;
 }
 
 .Button {
@@ -28,7 +28,7 @@
 
     &:hover {
         & .Svg {
-            color: $second-accent-color;
+            color: $accent-color;
         }
     }
 

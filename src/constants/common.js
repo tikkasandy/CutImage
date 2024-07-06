@@ -1,1 +1,0 @@
-export const FIRST_LETTER_CODE = 65;

@@ -17,12 +17,14 @@ const CutButton = () => {
         <CustomTooltip
             title={error ? 'Choose image' : 'Cut and shuffle'}
             placement="top">
-            <button className={s.Button}
-                type="button"
-                onClick={handleShuffle}
-                disabled={error} >
-                <Icon className={s.LogoImg} />
-            </button>
+            <span>
+                <button className={s.Button}
+                    type="button"
+                    onClick={handleShuffle}
+                    disabled={error} >
+                    <Icon className={s.LogoImg} />
+                </button>
+            </span>
         </CustomTooltip>
     )
 }
