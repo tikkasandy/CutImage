@@ -136,7 +136,6 @@ const OriginalImg = () => {
                 </div>
 
             </div>
-            <p className={s.BreakPage}>&nbsp;</p>
         </div>
     )
 }

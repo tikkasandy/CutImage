@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
-import s from './ShuffledPieces.module.scss';
+import s from './CuttedImg.module.scss';
 import { AppContext } from '../../context';
 
-const ShuffledPieces = () => {
+const CuttedImg = () => {
     const FIRST_LETTER = 65;
     const { state, dispatch } = useContext(AppContext);
 
     const { grid, imgSize, shuffle } = state;
     const { rows, columns } = grid;
-    const { width, height, originWidth } = imgSize;
+    const { width, height, } = imgSize;
 
     const [pieces, setPieces] = useState([]);
 
@@ -44,35 +44,37 @@ const ShuffledPieces = () => {
             setPieces(shuffleArray(newPieces));
             dispatch({ type: 'TOGGLE_SHUFFLE' });
         }
-    }, [shuffle, columns, rows, width, height]);
+    }, [dispatch, shuffle, columns, rows, width, height]);
 
     return (
         <div className={s.Cutted}>
             <h2 className={s.Title}>Cutted image</h2>
-            <div className={`${s.CuttedImg}`}
-            // style={{ width, gridTemplateColumns: `repeat(${columns}, auto)` }}>
-            // style={{ width }}
-            >
-
+            <div className={s.Wrapper}>
                 {pieces.map((piece, index) => (
-                    <div className={s.PieceBlock} key={index}>
-                        <div className={s.ImagePieceLabel}>
+                    <div
+                        key={index}
+                        className={s.Piece}
+                        style={{ width: piece.width }}
+                    >
+                        <div className={s.Label}>
                             {piece.label}
                         </div>
-                        <div className={s.ImagePiece}
+
+                        <div className={s.Image}
                             style={{
                                 width: piece.width,
                                 height: piece.height,
-                                backgroundImage: `url(${state.imgUrl})`,
-                                backgroundPosition: piece.backgroundPosition,
                                 top: piece.row * piece.height,
                                 left: piece.col * piece.width,
+                                backgroundImage: `url(${state.imgUrl})`,
                                 backgroundSize: piece.backgroundSize,
+                                backgroundPosition: piece.backgroundPosition,
                             }}>
-                            <div className={s.LinesM}
+
+                            <div className={s.Lines}
                                 style={{ width: piece.width, height: piece.height }}>
-                                <div className={s.VertLine}></div>
-                                <div className={s.HorLine}></div>
+                                <div className={s.Horizontal}></div>
+                                <div className={s.Vertical}></div>
                             </div>
                         </div>
                     </div>
@@ -82,4 +84,4 @@ const ShuffledPieces = () => {
     )
 }
 
-export default ShuffledPieces;
+export default CuttedImg;

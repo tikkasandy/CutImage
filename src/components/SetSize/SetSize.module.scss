@@ -1,14 +1,5 @@
 @import '/src/styles/shared.scss';
 
-.Section {
-    // padding: $section-vertical-padding $section-vertical-padding;
-
-
-    @media print {
-        display: none;
-    }
-}
-
 .Form {
     display: flex;
     justify-content: center;

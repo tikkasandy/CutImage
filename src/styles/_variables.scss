@@ -8,9 +8,9 @@ $small-font-size: 10px;
 
 // sizes
 $max-width: 100%;
-$bar-width: 200px;
 $svg-size: 20px;
 $smal-svg-size: $small-font-size;
+$error-svg-size: 75%;
 
 // buttons 
 $button-min-width: 48px;
@@ -22,10 +22,8 @@ $input-height: 10px;
 $input-padding: 5px;
 
 // paddings
-$container-horizontal-padding: 15px;
-$section-vertical-padding: 10px;
-$section-horizontal-padding: 10px;
-$settings-padding: 5px;
+$elements-padding: 10px;
+$elements-padding-small: calc($elements-padding/2);
 
 // margins
 $elements-margin: 10px;
@@ -39,8 +37,8 @@ $element-shadow: 0 2px 5px 2px rgba(0, 0, 0, .2);
 
 //borders
 $border-size: 1px;
-$bord-border-size: 2px;
-$round-border-radius: 30px;
+$border-size-bold: 2px;
+$border-radius-round: 30px;
 
 // transitions
 $transition-duration: 250ms;
@@ -51,6 +49,3 @@ $active-scale: 0.98;
 $grid-title-size: 40px;
 $main-line: 1px solid $black-color;
 $secondary-line: 1px dashed $primary-color;
-
-//error
-$error-svg-size: 250px;

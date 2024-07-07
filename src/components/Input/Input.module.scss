@@ -20,7 +20,7 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
 
     border: $border-size solid $border-color;
-    border-radius: $round-border-radius;
+    border-radius: $border-radius-round;
 
     transition: all $transition-duration $timing-function;
 
@@ -106,6 +106,6 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 1.5;
 
     border: none;
-    border-radius: $round-border-radius;
+    border-radius: $border-radius-round;
     outline: none;
 }

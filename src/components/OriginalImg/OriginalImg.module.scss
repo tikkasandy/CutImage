@@ -62,13 +62,11 @@
 
     grid-area: im;
 
-    border: $bord-border-size solid $black-color;
+    border: $border-size-bold solid $black-color;
 }
 
 .GridLine {
     position: absolute;
-    background-color: transparent;
-    z-index: 10;
 
     &.Main {
         border-top: $main-line;
@@ -81,7 +79,7 @@
     }
 }
 
-.GridLine.Horizontal {
+.Horizontal {
     height: 0;
 
     &.Main {
@@ -95,7 +93,7 @@
     }
 }
 
-.GridLine.Vertical {
+.Vertical {
     width: 0;
 
     &.Main {
@@ -134,8 +132,4 @@
     height: $error-svg-size;
 
     color: $accent-color;
-}
-
-.BreakPage {
-    page-break-after: always;
 }

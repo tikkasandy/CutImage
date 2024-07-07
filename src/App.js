@@ -2,8 +2,9 @@ import { AppContextProvider } from './context';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import OriginalImg from './components/OriginalImg/OriginalImg';
-import ShuffledPieces from './components/ShuffledPieces';
+import CuttedImg from './components/CuttedImg';
 import s from './App.module.scss';
+
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Header />
       <main className={s.Main}>
         <OriginalImg />
-        <ShuffledPieces />
+        <CuttedImg />
         <div className={s.Line}></div>
       </main>
       <Footer />

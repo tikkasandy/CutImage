@@ -6,7 +6,7 @@
     left: 0;
     z-index: 1100;
 
-    padding: $section-vertical-padding $section-horizontal-padding;
+    padding: $elements-padding;
 
     background-color: $primary-color;
     box-shadow: $section-shadow;
@@ -40,9 +40,9 @@
 }
 
 .Settings {
-    padding: $settings-padding;
+    padding: $elements-padding-small;
 
     background-color: $primary-color-darken;
 
-    border-radius: $round-border-radius;
+    border-radius: $border-radius-round;
 }
