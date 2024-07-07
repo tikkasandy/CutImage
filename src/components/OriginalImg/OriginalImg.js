@@ -88,54 +88,55 @@ const OriginalImg = () => {
     return (
         <div className={s.Original}>
             <h2 className={s.Title}>Original image</h2>
-            <div className={s.Grid}>
-                <div className={s.Columns}>
-                    {columnsNames.map((colLabel, index) => (
-                        <div
-                            className={s.ColumnName}
-                            key={index}
-                        >{colLabel}</div>
-                    ))}
-                </div>
+            {imgUrl.trim() &&
+                <div className={s.Grid}>
+                    <div className={s.Columns}>
+                        {columnsNames.map((colLabel, index) => (
+                            <div
+                                className={s.ColumnName}
+                                key={index}
+                            >{colLabel}</div>
+                        ))}
+                    </div>
 
-                <div className={s.Rows}>
-                    {rowsNames.map((rowLabel, index) => (
-                        <div className={s.RowName}
-                            key={index}
-                        >{rowLabel}</div>
-                    ))}</div>
+                    <div className={s.Rows}>
+                        {rowsNames.map((rowLabel, index) => (
+                            <div className={s.RowName}
+                                key={index}
+                            >{rowLabel}</div>
+                        ))}</div>
 
-                <div className={s.Image}>
-                    <img
-                        onLoad={onLoad}
-                        onError={onError}
-                        src={imgUrl}
-                        alt='Original'
-                        ref={picRef}
-                        style={{ opacity: imgVisibility ? 1 : 0, display: `${error ? 'none' : 'block'}` }}
-                        hidden={error} />
+                    <div className={s.Image}>
+                        <img
+                            onLoad={onLoad}
+                            onError={onError}
+                            src={imgUrl}
+                            alt='Original'
+                            ref={picRef}
+                            style={{ opacity: imgVisibility ? 1 : 0, display: `${error ? 'none' : 'block'}` }}
+                            hidden={error} />
 
-                    {lines.map((line, index) => (
-                        <div
-                            key={index}
-                            className={`${s.GridLine} ${line.orientation === 'horizontal' ? s.Horizontal : s.Vertical} ${line.type === 'main' ? s.Main : s.Secondary}`}
-                            style={line.orientation === 'horizontal' ? { top: line.position } : { left: line.position }}
-                            hidden={!linesVisibility}
-                        ></div>
-                    ))}
+                        {lines.map((line, index) => (
+                            <div
+                                key={index}
+                                className={`${s.GridLine} ${line.orientation === 'horizontal' ? s.Horizontal : s.Vertical} ${line.type === 'main' ? s.Main : s.Secondary}`}
+                                style={line.orientation === 'horizontal' ? { top: line.position } : { left: line.position }}
+                                hidden={!linesVisibility}
+                            ></div>
+                        ))}
 
-                    {error &&
-                        <div
-                            className={s.Error}
-                            style={{ height, width }}
-                        >
-                            <p className={s.ErrorMessage}>Image not found</p>
-                            <Frown className={s.Smile}></Frown>
-                            <p className={s.ErrorMessage}>Please enter correct Url</p>
-                        </div>}
-                </div>
+                        {error &&
+                            <div
+                                className={s.Error}
+                                style={{ height, width }}
+                            >
+                                <p className={s.ErrorMessage}>Image not found</p>
+                                <Frown className={s.Smile}></Frown>
+                                <p className={s.ErrorMessage}>Please enter correct Url</p>
+                            </div>}
+                    </div>
 
-            </div>
+                </div>}
         </div>
     )
 }
