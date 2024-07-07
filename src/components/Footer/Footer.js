@@ -7,11 +7,11 @@ const Footer = () => (
             <p className={s.Text}> {'© 2024 Developed by '}
                 <a
                     className={s.Link}
-                    href="https://github.com/tikkasandy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Github profile"
-                    aria-label="Link to Github profile"
+                    href='https://github.com/tikkasandy'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    title='Github profile'
+                    aria-label='Link to Github profile'
                 >
                     tikkasandy
                 </a>

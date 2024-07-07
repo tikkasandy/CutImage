@@ -1,15 +1,7 @@
 @import '/src/styles/shared.scss';
 
 .SettingsBar {
-    // width: 20%;
-
-    // background-color: lightgray;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    // @media print {
-    //     display: none;
-    // }
 }

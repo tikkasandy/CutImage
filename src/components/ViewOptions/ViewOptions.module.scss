@@ -1,6 +1,6 @@
 @import '/src/styles/shared.scss';
 
-.SettingsMenu {
+.ViewOptions {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +35,14 @@
     &:active {
         opacity: 0.5;
         transform: scale($active-scale);
+    }
+
+    &:disabled {
+        pointer-events: none;
+
+        & .Svg {
+            color: $disabled-color;
+        }
     }
 
     &:not(:last-child) {

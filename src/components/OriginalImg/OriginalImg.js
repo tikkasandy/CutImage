@@ -7,9 +7,8 @@ import s from './OriginalImg.module.scss';
 const OriginalImg = () => {
     const { state, dispatch } = useContext(AppContext);
 
-    const { grid, imgVisibility, linesVisibility, imgUrl, imgSize, error } = state;
+    const { grid, imgVisibility, linesVisibility, imgUrl, error } = state;
     const { rows, columns } = grid;
-    const { width, height } = imgSize;
 
     const picRef = useRef(null);
 
@@ -29,6 +28,11 @@ const OriginalImg = () => {
                 originWidth: picRef.current.naturalWidth,
                 originHeight: picRef.current.naturalHeight,
             },
+        });
+
+        dispatch({
+            type: 'SET_SHUFFLE',
+            payload: true,
         });
     }
 
@@ -89,7 +93,7 @@ const OriginalImg = () => {
         <div className={s.Original}>
             <h2 className={s.Title}>Original image</h2>
             {imgUrl.trim() &&
-                <div className={s.Grid}>
+                <div className={s.Grid} style={{ opacity: error ? 0 : 1 }}>
                     <div className={s.Columns}>
                         {columnsNames.map((colLabel, index) => (
                             <div
@@ -125,18 +129,19 @@ const OriginalImg = () => {
                             ></div>
                         ))}
 
-                        {error &&
-                            <div
-                                className={s.Error}
-                                style={{ height, width }}
-                            >
-                                <p className={s.ErrorMessage}>Image not found</p>
-                                <Frown className={s.Smile}></Frown>
-                                <p className={s.ErrorMessage}>Please enter correct Url</p>
-                            </div>}
+
                     </div>
 
                 </div>}
+            {error &&
+                <div
+                    className={s.Error}
+                >
+                    <p className={s.ErrorMessage}>Image not found</p>
+                    <Frown className={s.Smile}></Frown>
+                    <p className={s.ErrorMessage}>Please enter correct Url</p>
+                </div>}
+            <p className={s.BreakPage}>&nbsp;</p>
         </div>
     )
 }

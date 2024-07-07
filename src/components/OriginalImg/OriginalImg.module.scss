@@ -1,6 +1,8 @@
 @import '/src/styles/shared.scss';
 
 .Original {
+    position: relative;
+
     margin: 0 $elements-margin;
     text-align: center;
 
@@ -24,8 +26,8 @@
     grid-template-rows: $grid-title-size auto;
     grid-template-columns: $grid-title-size auto;
     grid-template-areas:
-        ". columns"
-        "rows im";
+        '. columns'
+        'rows im';
 }
 
 .Columns {
@@ -108,14 +110,23 @@
 }
 
 .Error {
-    position: relative;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 50vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+
+    transform: translate(-50%, -50%);
+
+    @media print {
+        display: none;
+    }
 }
 
 .ErrorMessage {
@@ -132,4 +143,8 @@
     height: $error-svg-size;
 
     color: $accent-color;
+}
+
+.BreakPage {
+    page-break-after: always;
 }

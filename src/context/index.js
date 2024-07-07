@@ -1,21 +1,21 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from 'react';
 
 const initialState = {
     grid: {
-        rows: 1,
-        columns: 1,
+        rows: 3,
+        columns: 3,
     },
     imgSize: {
-        width: 500,
-        height: 500,
-        originWidth: 500,
-        originHeight: 500,
+        width: 0,
+        height: 0,
+        originWidth: 0,
+        originHeight: 0,
     },
-    linesVisibility: false,
+    linesVisibility: true,
     imgVisibility: true,
     imgUrl: '',
     error: false,
-    shuffle: false,
+    shuffle: true,
 };
 
 const reducer = (state, action) => {
@@ -33,8 +33,8 @@ const reducer = (state, action) => {
             return { ...state, imgUrl: action.payload };
         case 'SET_ERROR':
             return { ...state, error: action.payload };
-        case 'TOGGLE_SHUFFLE':
-            return { ...state, shuffle: !state.shuffle };
+        case 'SET_SHUFFLE':
+            return { ...state, shuffle: action.payload };
         default:
             return state;
     }
@@ -43,13 +43,14 @@ const reducer = (state, action) => {
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+    const restoredState = JSON.parse(localStorage.getItem('kidDRAWgrid')) || initialState;
+    const mergedState = { ...restoredState, shuffle: initialState.shuffle };
 
-    const savedState = JSON.parse(localStorage.getItem('cutImageState')) || initialState;
-
-    const [state, dispatch] = useReducer(reducer, savedState);
+    const [state, dispatch] = useReducer(reducer, mergedState);
 
     useEffect(() => {
-        localStorage.setItem('cutImageState', JSON.stringify(state));
+        const { shuffle, ...savedState } = state;
+        localStorage.setItem('kidDRAWgrid', JSON.stringify(savedState));
     }, [state]);
 
     return (

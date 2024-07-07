@@ -28,8 +28,8 @@ const Input = ({ name, type, min, max, value, onChange, onDecrease, onIncrease }
                 name={name}
                 min={min}
                 max={max}
-                step="1"
-                placeholder=""
+                step='1'
+                placeholder=''
                 aria-label={name}
                 id={name}
             />

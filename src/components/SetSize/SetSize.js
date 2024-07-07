@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../context';
-import { PiRowsBold } from "react-icons/pi";
-import { PiColumnsBold } from "react-icons/pi";
+import { PiRowsBold } from 'react-icons/pi';
+import { PiColumnsBold } from 'react-icons/pi';
 import CustomTooltip from '../CustomTooltip';
 import Input from '../Input';
 import s from './SetSize.module.scss';
@@ -9,6 +9,7 @@ import s from './SetSize.module.scss';
 
 const SetSize = () => {
     const { state, dispatch } = useContext(AppContext);
+
 
     const [rows, setRows] = useState(state.grid.rows);
     const [columns, setColumns] = useState(state.grid.columns);
@@ -23,6 +24,11 @@ const SetSize = () => {
                 rows,
                 columns,
             },
+        });
+
+        dispatch({
+            type: 'SET_SHUFFLE',
+            payload: true,
         });
     }, [rows, columns, dispatch]);
 
@@ -75,10 +81,10 @@ const SetSize = () => {
             <form className={s.Form}>
                 <CustomTooltip
                     title='Number of rows'
-                    placement="top">
+                    placement='top'>
 
                     <div className={s.Input}>
-                        <label className={s.Label} htmlFor="rows">
+                        <label className={s.Label} htmlFor='rows'>
                             {/* <p className={s.Text}>rows</p> */}
                             <PiRowsBold className={s.Svg} />
                         </label>
@@ -87,8 +93,8 @@ const SetSize = () => {
                             onDecrease={() => onDecrease('rows')}
                             onIncrease={() => onIncrease('rows')}
                             value={rows}
-                            type="number"
-                            name="rows"
+                            type='number'
+                            name='rows'
                             min={INPUT_MIN}
                             max={INPUT_MAX}
                         />
@@ -97,9 +103,9 @@ const SetSize = () => {
 
                 <CustomTooltip
                     title='Number of columns'
-                    placement="top">
+                    placement='top'>
                     <div className={s.Input}>
-                        <label className={s.Label} htmlFor="columns">
+                        <label className={s.Label} htmlFor='columns'>
                             <PiColumnsBold className={s.Svg} />
                             {/* <p className={s.Text}>columns</p> */}
                         </label>
@@ -108,8 +114,8 @@ const SetSize = () => {
                             onDecrease={() => onDecrease('columns')}
                             onIncrease={() => onIncrease('columns')}
                             value={columns}
-                            type="number"
-                            name="columns"
+                            type='number'
+                            name='columns'
                             min={INPUT_MIN}
                             max={INPUT_MAX}
                         />

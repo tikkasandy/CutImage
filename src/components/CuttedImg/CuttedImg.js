@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import s from './CuttedImg.module.scss';
 import { AppContext } from '../../context';
+import { CONSTANTS } from '../../utils/constants';
+import s from './CuttedImg.module.scss';
+
 
 const CuttedImg = () => {
-    const FIRST_LETTER = 65;
     const { state, dispatch } = useContext(AppContext);
 
-    const { grid, imgSize, shuffle } = state;
+    const { grid, imgSize, shuffle, error, imgUrl } = state;
     const { rows, columns } = grid;
     const { width, height, } = imgSize;
 
@@ -21,7 +22,7 @@ const CuttedImg = () => {
     };
 
     useEffect(() => {
-        if (shuffle) {
+        if (shuffle && !error && imgUrl.trim()) {
             const pieceWidthP = width / columns;
             const pieceHeightP = height / rows;
 
@@ -33,7 +34,7 @@ const CuttedImg = () => {
                         row,
                         col,
                         backgroundPosition: `-${col * pieceWidthP}px -${row * pieceHeightP}px`,
-                        label: `${String.fromCharCode(col + FIRST_LETTER)}${row + 1}`,
+                        label: `${String.fromCharCode(col + CONSTANTS.FIRST_LETTER_CODE)}${row + 1}`,
                         width: pieceWidthP,
                         height: pieceHeightP,
                         backgroundSize: `${width}px ${height}px`
@@ -42,44 +43,52 @@ const CuttedImg = () => {
             }
 
             setPieces(shuffleArray(newPieces));
-            dispatch({ type: 'TOGGLE_SHUFFLE' });
+
+            setTimeout(() => {
+                dispatch({
+                    type: 'SET_SHUFFLE',
+                    payload: false,
+                });
+            }, 0);
         }
-    }, [dispatch, shuffle, columns, rows, width, height]);
+    }, [dispatch, shuffle, columns, rows, width, height, error, imgUrl]);
 
     return (
         <div className={s.Cutted}>
             <h2 className={s.Title}>Cutted image</h2>
-            <div className={s.Wrapper}>
-                {pieces.map((piece, index) => (
-                    <div
-                        key={index}
-                        className={s.Piece}
-                        style={{ width: piece.width }}
-                    >
-                        <div className={s.Label}>
-                            {piece.label}
-                        </div>
+            {(!error && imgUrl.trim()) &&
+                <div className={s.Wrapper}>
+                    {pieces.map((piece, index) => (
+                        <div
+                            key={index}
+                            className={s.Piece}
+                            style={{ width: piece.width }}
+                        >
+                            <div className={s.Label}>
+                                {piece.label}
+                            </div>
 
-                        <div className={s.Image}
-                            style={{
-                                width: piece.width,
-                                height: piece.height,
-                                top: piece.row * piece.height,
-                                left: piece.col * piece.width,
-                                backgroundImage: `url(${state.imgUrl})`,
-                                backgroundSize: piece.backgroundSize,
-                                backgroundPosition: piece.backgroundPosition,
-                            }}>
+                            <div className={s.Image}
+                                style={{
+                                    width: piece.width,
+                                    height: piece.height,
+                                    top: piece.row * piece.height,
+                                    left: piece.col * piece.width,
+                                    backgroundImage: `url(${imgUrl})`,
+                                    backgroundSize: piece.backgroundSize,
+                                    backgroundPosition: piece.backgroundPosition,
+                                }}>
 
-                            <div className={s.Lines}
-                                style={{ width: piece.width, height: piece.height }}>
-                                <div className={s.Horizontal}></div>
-                                <div className={s.Vertical}></div>
+                                <div className={s.Lines}
+                                    style={{ width: piece.width, height: piece.height }}>
+                                    <div className={s.Horizontal}></div>
+                                    <div className={s.Vertical}></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            }
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import SetSize from '../SetSize';
 import SetImage from '../SetImage';
-import SettingsMenu from '../SettingsMenu';
-import CutButton from '../CutButton';
+import ViewOptions from '../ViewOptions';
 import s from './SettingsBar.module.scss';
 
 const SettingsBar = () => {
@@ -9,8 +8,7 @@ const SettingsBar = () => {
         <div className={s.SettingsBar}>
             <SetSize />
             <SetImage />
-            <SettingsMenu />
-            <CutButton />
+            <ViewOptions />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../context';
-import { PiLinkSimpleBold } from "react-icons/pi";
+import { PiLinkSimpleBold } from 'react-icons/pi';
 import CustomTooltip from '../CustomTooltip';
 import s from './SetImage.module.scss';
 
@@ -14,6 +14,11 @@ const SetImage = () => {
             type: 'SET_IMG_URL',
             payload: url,
         });
+
+        dispatch({
+            type: 'SET_SHUFFLE',
+            payload: true,
+        });
     }, [url, dispatch]);
 
     const handleChangeUrl = ({ target }) => {
@@ -25,9 +30,9 @@ const SetImage = () => {
     return (
         <CustomTooltip
             title='Image URL'
-            placement="top">
+            placement='top'>
             <div className={s.Section}>
-                <label className={s.Label} htmlFor="picture">
+                <label className={s.Label} htmlFor='picture'>
                     <PiLinkSimpleBold className={s.Svg} />
                 </label>
                 <div className={s.Url}>
@@ -35,9 +40,9 @@ const SetImage = () => {
                         value={url}
                         className={s.Input}
                         onChange={handleChangeUrl}
-                        type="url"
-                        name="picture"
-                        id="picture"
+                        type='url'
+                        name='picture'
+                        id='picture'
                     />
                 </div>
             </div>

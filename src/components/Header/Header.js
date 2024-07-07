@@ -1,4 +1,4 @@
-import Container from "../Container";
+import Container from '../Container';
 import SettingsBar from '../SettingsBar';
 import { ReactComponent as Icon } from '../../images/svg/scissors.svg';
 import s from './Header.module.scss';
