@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/kidDRAWgrid/static/css/main.b239a08a.css",
-    "main.js": "/kidDRAWgrid/static/js/main.93831918.js",
+    "main.css": "/kidDRAWgrid/static/css/main.fe82b544.css",
+    "main.js": "/kidDRAWgrid/static/js/main.24c0cf2f.js",
     "index.html": "/kidDRAWgrid/index.html",
     "static/media/scissors.svg": "/kidDRAWgrid/static/media/scissors.baeaa7881c66da8047e46c5cd7e5c2d0.svg",
-    "main.b239a08a.css.map": "/kidDRAWgrid/static/css/main.b239a08a.css.map",
-    "main.93831918.js.map": "/kidDRAWgrid/static/js/main.93831918.js.map"
+    "main.fe82b544.css.map": "/kidDRAWgrid/static/css/main.fe82b544.css.map",
+    "main.24c0cf2f.js.map": "/kidDRAWgrid/static/js/main.24c0cf2f.js.map"
   },
   "entrypoints": [
-    "static/css/main.b239a08a.css",
-    "static/js/main.93831918.js"
+    "static/css/main.fe82b544.css",
+    "static/js/main.24c0cf2f.js"
   ]
 }
